@@ -1,13 +1,14 @@
-# Persian_RAG
+# Persian RAG with multi user support
 
 **Persian_RAG** is a Retrieval-Augmented Generation (RAG) application specifically designed for the Persian language. This project leverages advanced Language Models (LLMs) to enhance the accuracy and relevance of generated responses by integrating a retrieval mechanism to fetch contextual information.
 
 ## Table of Contents
-- [Persian\_RAG](#persian_rag)
+- [Persian RAG with multi user support](#persian-rag-with-multi-user-support)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
   - [Architecture](#architecture)
+  - [GPU Requirements](#gpu-requirements)
   - [Installation](#installation)
 
 ## Introduction
@@ -24,13 +25,16 @@ The goal of this project is to create a Persian specific RAG application that ca
 
 ## Architecture
 
-The architecture of the Persian_RAG system includes two main components:
+The architecture of the Persian RAG system includes two main components:
 
 1. **Retriever**: This component fetches relevant documents or passages from a large corpus based on the user's query.
 2. **Generator**: This component generates the final response using the retrieved documents to ensure relevance and accuracy.
+3. **Chainlit UI**: [Chainlit](https://github.com/Chainlit/chainlit) is on the best build production ready Conversational AI interfaces. I've used this to chat with my model.  
 
 The RAG architecture ensures that the generation process is guided by factual and contextual data, improving the overall quality of the output.
 
+## GPU Requirements
+My workspace supprted me with a `nvidia A100 40GB`. but i assume the minimum requiremnts would be about `20GB` of VRAM.
 ## Installation
 
 To get started with Persian_RAG, follow these steps:
@@ -55,7 +59,8 @@ To get started with Persian_RAG, follow these steps:
     ```
  
 
-4.  make a docker volume named `llmxp_ayamodel` and put the model into `model` directory. `docker-compose` will be using it in the future. also create a volume named `chainlit_data` which will pass the data to the engine. **NOTE** : you need to use `huggingface-cli` to download the model. <br> EG: `huggingface-cli download CohereForAI/aya-23-8B --local-dir .` when you are in the model directory
+4.  make a docker volume named `llmxp_ayamodel` and put the model into `model` directory. `docker-compose` will be using it in the future. also create a volume named `chainlit_data` which will pass the data to the engine.<br>
+    **NOTE** : you need to use `huggingface-cli` to download the model. <br> EG: `huggingface-cli download CohereForAI/aya-23-8B --local-dir .` when you are in the model directory
    
 5. create a docker network `ayanet`.
 6. `docker compose up` and your app is ready ! 
