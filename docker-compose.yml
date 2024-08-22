@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+
+  model:
+    image: ayaengine
+    container_name: ayaengine-f
+    networks:
+      - ayanet
+    volumes:
+      - chainlit_data:/app/.files
+      - llmxp_ayamodel:/app/model
+    ports:
+      - 5000:5000
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+
+  chainlit:
+    image: chainlitfront
+    container_name: chainfront
+    ports:
+      - 28399:8000
+    networks:
+      - ayanet
+    volumes:
+      - chainlit_data:/app/.files
+      - llmxp_ayamodel:/app/model
+      
+networks:
+  ayanet:
+    driver: bridge
+
+volumes:
+  chainlit_data:
+    external: true
+  llmxp_ayamodel:
+    external: true
