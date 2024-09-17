@@ -54,8 +54,8 @@ To get started with Persian_RAG, follow these steps:
     ```
 3. Run the images 
     ```bash 
-    docker run --gpus all --name ayaengine-f --port 5000:5000
-    docker run --name chainfront --port 8000:8000
+    docker run --gpus all --name ayaengine-f -p 5000:5000 ayaengine
+    docker run --name chainfront -p 8000:8000 chainlitfront
     ```
  
 
