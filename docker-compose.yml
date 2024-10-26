@@ -24,7 +24,7 @@ services:
     image: chainlitfront
     container_name: chainfront
     ports:
-      - 28399:8000
+      - 8000:8000
     networks:
       - ayanet
     volumes:

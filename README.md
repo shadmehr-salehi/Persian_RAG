@@ -52,16 +52,11 @@ To get started with Persian_RAG, follow these steps:
     cd Ayaengine
     docker build -t ayaengine . 
     ```
-3. Run the images 
-    ```bash 
-    docker run --gpus all --name ayaengine-f -p 5000:5000 ayaengine
-    docker run --name chainfront -p 8000:8000 chainlitfront
-    ```
+
  
 
 4.  make a docker volume named `llmxp_ayamodel` and put the model into `model` directory. `docker-compose` will be using it in the future. also create a volume named `chainlit_data` which will pass the data to the engine.<br>
     **NOTE** : you need to use `huggingface-cli` to download the model. <br> EG: `huggingface-cli download CohereForAI/aya-23-8B --local-dir .` when you are in the model directory
    
-5. create a docker network `ayanet`.
-6. `docker compose up` and your app is ready ! 
-7. open `localhost:8000` and enjoy !
+5. `docker compose up` and your app is ready ! 
+6. open `localhost:8000` and enjoy !
