@@ -3,7 +3,7 @@ services:
 
   model:
     image: ayaengine
-    container_name: ayaengine-f
+    container_name: ayaengine
     networks:
       - ayanet
     volumes:
@@ -30,11 +30,11 @@ services:
     volumes:
       - chainlit_data:/app/.files
       - llmxp_ayamodel:/app/model
-      
+
 networks:
   ayanet:
-    driver: bridge
-
+    external: true
+    name: ragapp_ayanet
 volumes:
   chainlit_data:
     external: true
