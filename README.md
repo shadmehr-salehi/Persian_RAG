@@ -1,5 +1,6 @@
 # Persian RAG with multi user support
 
+
 **Persian_RAG** is a Retrieval-Augmented Generation (RAG) application specifically designed for the Persian language. This project leverages advanced Language Models (LLMs) to enhance the accuracy and relevance of generated responses by integrating a retrieval mechanism to fetch contextual information.
 
 ## Table of Contents
