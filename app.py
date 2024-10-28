@@ -47,8 +47,7 @@ async def on_chat_start():
 
     language = cl.user_session.get("chat_profile")
     await cl.Message(
-        content=f"starting chat using the {language} language {uid}" ,
-        disable_feedback=True
+        content=f"starting chat using the {language} language {uid}" 
     ).send()
     print({"lang": language.lower() , "user_id": uid})
     response = requests.post("http://ayaengine:5000/set-language", json={"lang": language.lower() , "user_id": uid})
@@ -69,7 +68,7 @@ async def on_chat_start():
         ).send()
 
     file = files[0]
-    msg = cl.Message(content=f"Processing `{file.name}`...", disable_feedback=True )
+    msg = cl.Message(content=f"Processing `{file.name}`...")
     await msg.send()
     def req():
         return requests.post("http://ayaengine:5000/parse-file", json={"filepath": file.path , "user_id": uid} , timeout=600)
